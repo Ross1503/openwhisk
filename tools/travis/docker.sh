@@ -22,7 +22,7 @@ echo "$BASEDIR"
 sudo gpasswd -a travis docker
 sudo usermod -aG docker travis
 #sudo -E bash -c 'echo '\''DOCKER_OPTS="-H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock --storage-driver=overlay --userns-remap=default"'\'' > /etc/default/docker'
-
+echo "111111111111111111111111111"
 # Docker
 sudo apt-get clean
 sudo apt-get update
@@ -31,26 +31,30 @@ sudo chmod 666 /var/run/docker.sock
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common dpkg
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo apt-key fingerprint 0EBFCD88
-
+echo "222222222222222222222222222222"
 # This is required because libseccomp2 (>= 2.3.0) is not provided in trusty by default
 sudo add-apt-repository -y ppa:ubuntu-sdk-team/ppa
 
 sudo add-apt-repository \
     "deb [arch=$(uname -m | sed -e 's/aarch64/arm64/g')] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-
+echo "333333333333333333333333333333333"
 sudo apt-get update
 sudo apt-get -o Dpkg::Options::="--force-confold" --force-yes -y install docker-ce=18.06.3~ce~3-0~ubuntu containerd.io
 # daemon.json and flags does not work together. Overwritting the docker.service file
 # to remove the host flags. - https://docs.docker.com/config/daemon/#troubleshoot-conflicts-between-the-daemonjson-and-startup-scripts
 sudo mkdir -p /etc/systemd/system/docker.service.d
+echo "44444444444444444444444444444444444444"
 sudo cp $BASEDIR/docker.conf /etc/systemd/system/docker.service.d/docker.conf
 # setup-docker will add configs to /etc/docker/daemon.json
 sudo python $BASEDIR/setup-docker.py
+echo "55555555555555555555555555"
 sudo cat /etc/docker/daemon.json
 sudo systemctl daemon-reload
 sudo systemctl restart docker
+echo "66666666666666666666666666666"
 sudo systemctl status docker.service
 echo "Docker Version:"
 sudo docker version
+echo "7777777777777777777777777777777777777"
 echo "Docker Info:"
 sudo docker info
