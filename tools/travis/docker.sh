@@ -26,7 +26,6 @@ echo "111111111111111111111111111"
 # Docker
 sudo apt-get clean
 sudo apt-get update
-sudo rm -rf /var/lib/docker
 sudo chmod 666 /var/run/docker.sock
 # Need to update dpkg due to known issue: https://bugs.launchpad.net/ubuntu/+source/dpkg/+bug/1730627
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common dpkg
