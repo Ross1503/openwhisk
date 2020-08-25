@@ -22,7 +22,7 @@ ADD init /
 ADD stop waitready /bin/
 RUN chmod +x /bin/stop /bin/waitready ;\
   curl -sL \
-  https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz \
+  https://download.docker.com/linux/static/stable/aarch64/docker-${DOCKER_VERSION}.tgz \
   | tar xzvf -  -C /usr/bin --strip 1 docker/docker ;\
   curl -sL \
   https://github.com/apache/openwhisk-cli/releases/download/${WSK_VERSION}/OpenWhisk_CLI-${WSK_VERSION}-linux-amd64.tgz \
