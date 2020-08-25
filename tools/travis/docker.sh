@@ -49,6 +49,8 @@ sudo cp $BASEDIR/docker.conf /etc/systemd/system/docker.service.d/docker.conf
 sudo python $BASEDIR/setup-docker.py
 echo "55555555555555555555555555"
 sudo cat /etc/docker/daemon.json
+systemctl daemon-reload
+systemctl status docker.service
 sudo service docker restart
 echo "66666666666666666666666666666"
 sudo systemctl status docker.service
