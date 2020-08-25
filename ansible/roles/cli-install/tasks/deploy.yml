@@ -25,6 +25,6 @@
     validate_certs: no
   vars:
     host: "{{ groups['edge'] | first }}"
-    arch: "{{ ansible_machine | replace ('x86_64', 'amd64') }}"
+    arch: "{{ ansible_machine | replace ('aarch64', 'arm64') }}"
     os: "{{ ansible_system | lower | replace('darwin', 'mac') }}"
     wsk: "{{ ( ansible_system == 'Windows') | ternary('wsk.exe', 'wsk') }}"
