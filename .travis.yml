@@ -54,7 +54,6 @@ cache:
     - $HOME/.gradle/wrapper/
 
 before_install:
-  - sudo rm -rf /var/lib/docker
   - sudo chmod 666 /var/run/docker.sock
   - ./tools/travis/docker.sh
   - sudo apt-get install -y python3-pip
