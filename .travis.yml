@@ -69,7 +69,7 @@ jobs:
     - script:
         - TERM=dumb OW_SCALA_VERSION=2.13 ./gradlew :tests:compileTestScala
       name: "Scala 2.13 compilation"
-    - arch: arm64  
+    - arch: arm64
       script:
         - TERM=dumb OW_SCALA_VERSION=2.13 ./gradlew :tests:compileTestScala
       name: "Scala 2.13 compilation"
