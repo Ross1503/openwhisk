@@ -55,8 +55,8 @@ sudo systemctl daemon-reload
 sudo service docker restart
 echo "66666666666666666666666666666"
 #sudo systemctl status docker.service
-echo "Docker Version:"
-sudo docker version
+#echo "Docker Version:"
+#sudo docker version
 echo "7777777777777777777777777777777777777"
-echo "Docker Info:"
-sudo docker info
+#echo "Docker Info:"
+#sudo docker info
