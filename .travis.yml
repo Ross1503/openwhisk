@@ -61,6 +61,7 @@ before_install:
   - pip3 install --user setuptools six
 
 install:
+  - sudo apt-cache madison docker-ce
   - ./tools/travis/setup.sh
 
 jobs:
