@@ -51,10 +51,10 @@ sudo python $BASEDIR/setup-docker.py
 echo "55555555555555555555555555"
 sudo cat /etc/docker/daemon.json
 sudo systemctl daemon-reload
-sudo systemctl status docker.service
+#sudo systemctl status docker.service
 sudo service docker restart
 echo "66666666666666666666666666666"
-#sudo systemctl status docker.service
+sudo systemctl status docker.service
 echo "Docker Version:"
 sudo docker version
 echo "7777777777777777777777777777777777777"
