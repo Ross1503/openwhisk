@@ -39,8 +39,8 @@ sudo add-apt-repository \
     "deb [arch=$(uname -m | sed -e 's/aarch64/arm64/g')] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 echo "333333333333333333333333333333333"
 sudo apt-get update
-sudo apt-get install --reinstall linux-image-3.13.0
-sudo apt-get -o Dpkg::Options::="--force-confold" --force-yes -y install docker-ce=5:19.03.12~3-0~ubuntu-focal containerd.io
+#sudo apt-get install --reinstall linux-image-3.13.0
+sudo apt-get -o Dpkg::Options::="--force-confold" --force-yes -y install docker-ce containerd.io
 # daemon.json and flags does not work together. Overwritting the docker.service file
 # to remove the host flags. - https://docs.docker.com/config/daemon/#troubleshoot-conflicts-between-the-daemonjson-and-startup-scripts
 sudo mkdir -p /etc/systemd/system/docker.service.d
