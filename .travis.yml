@@ -60,7 +60,7 @@ before_install:
   - sudo apt-get install -y python3-pip
   - pip install --user --upgrade pip setuptools six
   - pip3 install --user setuptools six
-  - pip install --user humanize
+  - python2.7 -m pip install --user humanize
 
 install:
   - ./tools/travis/setup.sh
