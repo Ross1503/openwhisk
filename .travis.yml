@@ -70,7 +70,12 @@ jobs:
     - script:
         - TERM=dumb OW_SCALA_VERSION=2.13 ./gradlew :tests:compileTestScala
       name: "Scala 2.13 compilation"
-    - arch: arm64
+    - os: linux
+      dist: focal
+      sudo: required
+      group: edge
+      arch: arm64-graviton2
+      virt: vm
       script:
         - TERM=dumb OW_SCALA_VERSION=2.13 ./gradlew :tests:compileTestScala
       name: "Scala 2.13 compilation"
@@ -78,7 +83,12 @@ jobs:
         - ./tools/travis/runUnitTests.sh
         - ./tools/travis/checkAndUploadLogs.sh unit db
       name: "Unit Tests"
-    - arch: arm64
+    - os: linux
+      dist: focal
+      sudo: required
+      group: edge
+      arch: arm64-graviton2
+      virt: vm
       script:
         - ./tools/travis/runUnitTests.sh
         - ./tools/travis/checkAndUploadLogs.sh unit db
@@ -87,7 +97,12 @@ jobs:
       - ./tools/travis/runSystemTests.sh
       - ./tools/travis/checkAndUploadLogs.sh system
       name: "System Tests"
-    - arch: arm64
+    - os: linux
+      dist: focal
+      sudo: required
+      group: edge
+      arch: arm64-graviton2
+      virt: vm
       script:
       - ./tools/travis/runSystemTests.sh
       - ./tools/travis/checkAndUploadLogs.sh system
@@ -96,7 +111,12 @@ jobs:
       - ./tools/travis/runMultiRuntimeTests.sh
       - ./tools/travis/checkAndUploadLogs.sh multi-runtime
       name: "Multi-Runtime Tests"
-    - arch: arm64
+    - os: linux
+      dist: focal
+      sudo: required
+      group: edge
+      arch: arm64-graviton2
+      virt: vm
       script:
       - ./tools/travis/runMultiRuntimeTests.sh
       - ./tools/travis/checkAndUploadLogs.sh multi-runtime
@@ -105,7 +125,12 @@ jobs:
         - ./tools/travis/runStandaloneTests.sh
         - ./tools/travis/checkAndUploadLogs.sh standalone
       name: "Standalone Tests"
-    - arch: arm64
+    - os: linux
+      dist: focal
+      sudo: required
+      group: edge
+      arch: arm64-graviton2
+      virt: vm
       script:
         - ./tools/travis/runStandaloneTests.sh
         - ./tools/travis/checkAndUploadLogs.sh standalone
@@ -126,7 +151,12 @@ jobs:
         - OPENWHISK_HOST="172.17.0.1" USERS="1" REQUESTS_PER_SEC="1" ./gradlew gatlingRun-org.apache.openwhisk.ColdBlockingInvokeSimulation
         - ./tools/travis/checkAndUploadLogs.sh perf
       name: "Performance Tests"
-    - arch: arm64
+    - os: linux
+      dist: focal
+      sudo: required
+      group: edge
+      arch: arm64-graviton2
+      virt: vm
       script:
         - ./tests/performance/preparation/deploy.sh
         - TERM=dumb ./tests/performance/wrk_tests/latency.sh "https://172.17.0.1:10001" "$(cat ansible/files/auth.guest)" ./tests/performance/preparation/actions/noop.js 2m
