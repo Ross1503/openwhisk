@@ -76,4 +76,4 @@
     find /run/network -regextype posix-egrep ${EXCLUDE_REGEX} -name 'ifstate.veth*' -and -mmin +60 -delete
   become: True
   ignore_errors: True
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '14.04'
+  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version == '20.04'
