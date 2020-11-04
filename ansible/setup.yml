@@ -18,8 +18,8 @@
 # This playbook prepares ansible configuration
 
 - name: Setup.yml
-  #hosts: all
-  hosts: localhost
+  hosts: all
+  #hosts: localhost
   gather_facts: yes
   tasks:
   # Generate hosts files
